@@ -1,10 +1,15 @@
 steps:
-# deploy container image to GKE
+  # build the container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["build", "-t", "gcr.io/global-song-354109/gketask:latest", "."]
+  # push container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/global-song-354109/gketask:latest"]
+  # deploy container image to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
   - --filename=app.yaml
-  - --location=us-east1-c
+  - --image=gcr.io/global-song-354109/gketask:latest
+  - --location=us-central1-c
   - --cluster=harir-cluster-trial
-options:
-  logging: NONE
