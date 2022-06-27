@@ -13,3 +13,5 @@ steps:
   - --image=gcr.io/global-song-354109/gketask:latest
   - --location=us-central1-c
   - --cluster=harir-cluster-trial
+options:
+  logging: NONE
