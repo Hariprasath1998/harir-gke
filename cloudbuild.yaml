@@ -3,6 +3,6 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
-  - --filename=app.yml
+  - --filename=app.yaml
   - --location=us-east1-c
   - --cluster=harir-cluster-trial
