@@ -1,10 +1,10 @@
 steps:
   # build the container image
 - name: "gcr.io/cloud-builders/docker"
-  args: ["build", "-t", "gcr.io/global-song-354109/gketask:latest", "."]
+  args: ["build", "-t", "gcr.io/global-song-354109/gketask:dev", "."]
   # push container image
 - name: "gcr.io/cloud-builders/docker"
-  args: ["push", "gcr.io/global-song-354109/gketask:latest"]
+  args: ["push", "gcr.io/global-song-354109/gketask:dev"]
   # deploy container image to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
