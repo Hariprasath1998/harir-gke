@@ -15,7 +15,7 @@ spec:
       containers:
         - name: app
           image: gcr.io/global-song-354109/gketask:latest
-          ports:
+          ports: 80
             - name: web
               containerPort: 80
               protocol: TCP
@@ -28,28 +28,11 @@ metadata:
     # If the class annotation is not specified it defaults to "gce".
     kubernetes.io/ingress.class: "gce"
 spec:
-  rules:
-  - http:
-      paths:
-      - path: /*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: hello-world
-            port:
-              number: 80
----
-
-apiVersion: "v1"
-kind: "Service"
-metadata:
-  name: "hello-world-service"
-  namespace: "default"
-spec:
-  ports:
-  - protocol: "TCP"
-    port: 80
+  type: LoadBalancer
   selector:
-    app: "hello-world"
-  type: "LoadBalancer"
-  loadBalancerIP: ""
+    app: hello-world
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: web
