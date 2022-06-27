@@ -5,7 +5,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: httpd_app_nautilus
+    app: httpd-app-nautilus
   ports:
     - port: 80
       targetPort: 80
@@ -15,16 +15,16 @@ kind: Deployment
 metadata:
   name: httpd-deployment-nautilus
   labels:
-    app: httpd_app_nautilus
+    app: httpd-app-nautilus
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: httpd_app_nautilus
+      app: httpd-app-nautilus
   template:
     metadata:
       labels:
-        app: httpd_app_nautilus
+        app: httpd-app-nautilus
     spec:
       containers:
         - name: httpd-container-nautilus
