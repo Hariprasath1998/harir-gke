@@ -19,20 +19,20 @@ spec:
       - name: "harir-gke"
         image: "gcr.io/global-song-354109/gketask:latest"
 ---
-apiVersion: "autoscaling/v2beta1"
-kind: "HorizontalPodAutoscaler"
-metadata:
-  name: "harir-gke"
-  labels:
-    app: "harir-gke"
-spec:
-  scaleTargetRef:
-    kind: "Deployment"
-    name: "harir-gke"
-    apiVersion: "apps/v1"
-  minReplicas: 1
-  maxReplicas: 5
-  metrics:
+# apiVersion: "autoscaling/v2beta1"
+# kind: "HorizontalPodAutoscaler"
+# metadata:
+#   name: "harir-gke"
+#   labels:
+#     app: "harir-gke"
+# spec:
+#   scaleTargetRef:
+#     kind: "Deployment"
+#     name: "harir-gke"
+#     apiVersion: "apps/v1"
+#   minReplicas: 1
+#   maxReplicas: 5
+#   metrics:
   - type: "Resource"
     resource:
       name: "cpu"
