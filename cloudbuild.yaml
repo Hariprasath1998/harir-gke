@@ -9,9 +9,10 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
-  - --filename=app.yaml
+  - --filename=app_trial.yaml
   - --location=us-central1-c
   - --cluster=harir-cluster-trial
   - --namespace=$BRANCH_NAME
+  - -x 80
 options:
   logging: CLOUD_LOGGING_ONLY
