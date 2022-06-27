@@ -9,11 +9,9 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
-  - --filename=app_trial1.yaml
+  - --filename=app.yaml
   - --location=us-central1-c
   - --cluster=harir-cluster-trial
   - --namespace=$BRANCH_NAME
-  - --app=httpd-app-nautilus
-  - --expose=80
 options:
   logging: CLOUD_LOGGING_ONLY
