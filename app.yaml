@@ -2,33 +2,33 @@
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
-  name: "nginx-1"
+  name: "harir-gke"
   labels:
-    app: "nginx-1"
+    app: "harir-gke"
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: "nginx-1"
+      app: "harir-gke"
   template:
     metadata:
       labels:
-        app: "nginx-1"
+        app: "harir-gke"
     spec:
       containers:
-      - name: "nginx-1"
-        image: "nginx:latest"
+      - name: "harir-gke"
+        image: "gcr.io/global-song-354109/gketask:latest"
 ---
 apiVersion: "autoscaling/v2beta1"
 kind: "HorizontalPodAutoscaler"
 metadata:
-  name: "nginx-1-hpa-q7k7"
+  name: "harir-gke"
   labels:
-    app: "nginx-1"
+    app: "harir-gke"
 spec:
   scaleTargetRef:
     kind: "Deployment"
-    name: "nginx-1"
+    name: "harir-gke"
     apiVersion: "apps/v1"
   minReplicas: 1
   maxReplicas: 5
