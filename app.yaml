@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: gcr.io/global-song-354109/gketask:latest
+          image: gcr.io/global-song-354109/gketask:prod
           ports:
             - name: web
               containerPort: 80
