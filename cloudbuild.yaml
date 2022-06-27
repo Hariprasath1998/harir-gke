@@ -14,4 +14,4 @@ steps:
   - --location=us-central1-c
   - --cluster=harir-cluster-trial
 options:
-  logging: NONE
+  logging: CLOUD_LOGGING_ONLY
