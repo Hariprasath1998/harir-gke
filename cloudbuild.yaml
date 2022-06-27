@@ -7,4 +7,4 @@ steps:
   - --location=us-east1-c
   - --cluster=harir-cluster-trial
 options:
-  logging: GCS_ONLY
+  logging: NONE
