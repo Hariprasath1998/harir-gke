@@ -13,6 +13,6 @@ steps:
   - --location=us-central1-c
   - --cluster=harir-cluster-trial
   - --namespace=$BRANCH_NAME
-  - -x 80
+  - --expose=80
 options:
   logging: CLOUD_LOGGING_ONLY
