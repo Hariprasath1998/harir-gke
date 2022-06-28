@@ -19,9 +19,9 @@ steps:
   args:
   - apply
   - --filename=app.yaml
-  - --location=us-central1-c
-  - --cluster=harir-cluster-trial
-  - --namespace=$BRANCH_NAME
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=harir-cluster-trial'
   waitFor:
     - deploy-gke
 options:
