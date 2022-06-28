@@ -14,16 +14,16 @@ steps:
   - --location=us-central1-c
   - --cluster=harir-cluster-trial
   - --namespace=$BRANCH_NAME
-- name: 'gcr.io/cloud-builders/kubectl'
-  id: kubectl-apply
-  args:
-  - apply
-  - --filename=app.yaml
-  - --namespace=dev
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=harir-cluster-trial'
-  waitFor:
-    - deploy-gke
+# - name: 'gcr.io/cloud-builders/kubectl'
+#   id: kubectl-apply
+#   args:
+#   - apply
+#   - --filename=app.yaml
+#   - --namespace=dev
+#   env:
+#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+#   - 'CLOUDSDK_CONTAINER_CLUSTER=harir-cluster-trial'
+#   waitFor:
+#     - deploy-gke
 options:
   logging: CLOUD_LOGGING_ONLY
