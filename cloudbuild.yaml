@@ -7,11 +7,19 @@ steps:
   args: ["push", "gcr.io/global-song-354109/gketask:dev"]
   # deploy container image to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
+  id: deploy-gke
   args:
   - run
   - --filename=app.yaml
   - --location=us-central1-c
   - --cluster=harir-cluster-trial
   - --namespace=$BRANCH_NAME
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: kubectl-apply
+  args:
+  - apply
+  - --filename=app.yaml
+  waitFor:
+    - deploy-gke
 options:
   logging: CLOUD_LOGGING_ONLY
