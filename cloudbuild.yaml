@@ -19,6 +19,9 @@ steps:
   args:
   - apply
   - --filename=app.yaml
+  - --location=us-central1-c
+  - --cluster=harir-cluster-trial
+  - --namespace=$BRANCH_NAME
   waitFor:
     - deploy-gke
 options:
